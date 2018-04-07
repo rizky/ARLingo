@@ -244,7 +244,6 @@
     <Compile Include="ObjectExtensions\SCNScene_Extensions.cs" />
     <Compile Include="MachineLearningModel.cs" />
     <Compile Include="EventArgsT.cs" />
-    <Compile Include="ClassExtensions\UIImageExtensions.cs" />
     <Compile Include="ClassExtensions\UIImageOrientationExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -190,7 +190,6 @@ namespace ARLingo
 		public void ResetTracking()
 		{
 			Session.Run(StandardConfiguration(), ARSessionRunOptions.ResetTracking | ARSessionRunOptions.RemoveExistingAnchors);
-
 			UserFeedback.ScheduleMessage("FIND A SURFACE TO PLACE AN OBJECT", 7.5, MessageType.PlaneEstimation);
 		}
 

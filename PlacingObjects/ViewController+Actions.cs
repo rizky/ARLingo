@@ -2,7 +2,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using CoreFoundation;
+using CoreGraphics;
+using CoreImage;
+using CoreVideo;
 using Foundation;
+using Metal;
 using SceneKit;
 using UIKit;
 
@@ -60,7 +64,7 @@ namespace ARLingo
 			DispatchQueue.MainQueue.DispatchAfter(when, () => SetupFocusSquare());
 		}
 
-        public void AddText()
+        public void AddText(string Text)
         {
             if (Session == null || ViewController.CurrentFrame == null)
             {
@@ -69,8 +73,7 @@ namespace ARLingo
             var position = FocusSquare != null ? FocusSquare.LastPosition : new SCNVector3(0, 0, -1.0f);
 
             position.Z -= 0.05f; 
-            String txt = "ARLingo";
-            var scnText = SCNText.Create(txt, 1);
+            var scnText = SCNText.Create(Text, 1);
             var txtMaterial = SCNMaterial.Create();
             var bckgndMaterial = SCNMaterial.Create();
             txtMaterial.Diffuse.Contents = UIColor.Red;
@@ -98,13 +101,12 @@ namespace ARLingo
             //Grab the first 5 predictions, format them for display, and show 'em
             InvokeOnMainThread(() =>
             {
-                var message = $"{imageDescriptionPrediction.ModelName} thinks:\n";
-                var topFive = imageDescriptionPrediction.predictions.Take(5);
+                var topFive = imageDescriptionPrediction.predictions.Take(1);
                 foreach (var prediction in topFive)
                 {
                     var prob = prediction.Item1;
                     var desc = prediction.Item2;
-                    message += $"{desc} : {prob.ToString("P") }\n";
+                    AddText(desc);
                 }
 
             });
@@ -120,7 +122,16 @@ namespace ARLingo
 			}
 
 			UserFeedback.CancelScheduledMessage(MessageType.ContentPlacement);
-            AddText();
+            var currentImage = Session.CurrentFrame.CapturedImage;
+
+            CIImage cimage = CIImage.FromImageBuffer(currentImage);
+            string debug = cimage.PixelBuffer.PixelFormatType.ToString();
+            CIContext tempContext = CIContext.FromOptions(null);
+            CGImage videoImage = tempContext.CreateCGImage(cimage, new CGRect(0, 0, currentImage.Width, currentImage.Height));
+            UIImage image = UIImage.FromImage(videoImage);
+            UIImage rotated = new UIImage(image.CGImage, 1.0f, UIImageOrientation.Right);
+            ClassifyImageAsync(rotated);
+
 			//PerformSegue(SegueIdentifier.ShowObjects, button);
 		}
 
