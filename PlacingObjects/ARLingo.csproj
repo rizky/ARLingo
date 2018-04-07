@@ -184,6 +184,7 @@
     <Folder Include="Assets.xcassets\XamarinLogo.imageset\" />
     <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
     <Folder Include="Assets.xcassets\Logo.imageset\" />
+    <Folder Include="ClassExtensions\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -241,6 +242,10 @@
     <Compile Include="VirtualObjects\IVirtualObjectManagerDelegate.cs" />
     <Compile Include="ObjectCell.cs" />
     <Compile Include="ObjectExtensions\SCNScene_Extensions.cs" />
+    <Compile Include="MachineLearningModel.cs" />
+    <Compile Include="EventArgsT.cs" />
+    <Compile Include="ClassExtensions\UIImageExtensions.cs" />
+    <Compile Include="ClassExtensions\UIImageOrientationExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <SceneKitAsset Include="Models.scnassets\crosshair_blue.png" />
@@ -328,6 +333,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="VirtualObjects\VirtualObjects.json" />
+    <BundleResource Include="Resources\SqueezeNet.mlmodelc\coremldata.bin" />
+    <BundleResource Include="Resources\SqueezeNet.mlmodelc\model.espresso.net" />
+    <BundleResource Include="Resources\SqueezeNet.mlmodelc\model.espresso.shape" />
+    <BundleResource Include="Resources\SqueezeNet.mlmodelc\model.espresso.weights" />
+    <BundleResource Include="Resources\SqueezeNet.mlmodelc\model\coremldata.bin" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

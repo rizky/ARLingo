@@ -1,12 +1,15 @@
 ﻿using System;
 using CoreFoundation;
 using Foundation;
+using SceneKit;
 using UIKit;
 
 namespace ARLingo
 {
 	public partial class ViewController : IUIPopoverPresentationControllerDelegate
 	{
+        public IVirtualObjectSelectionViewControllerDelegate Delegate { get; set; }
+
 		static class SegueIdentifier
 		{
 			public static readonly NSString ShowSettings = new NSString("showSettings");
@@ -55,6 +58,30 @@ namespace ARLingo
 			DispatchQueue.MainQueue.DispatchAfter(when, () => SetupFocusSquare());
 		}
 
+        public void AddText()
+        {
+            if (Session == null || ViewController.CurrentFrame == null)
+            {
+                return;
+            }
+            var position = FocusSquare != null ? FocusSquare.LastPosition : new SCNVector3(0, 0, -1.0f);
+
+            position.Z -= 0.05f; 
+            String txt = "ARLingo";
+            var scnText = SCNText.Create(txt, 1);
+            var txtMaterial = SCNMaterial.Create();
+            var bckgndMaterial = SCNMaterial.Create();
+            txtMaterial.Diffuse.Contents = UIColor.Red;
+            scnText.FirstMaterial = txtMaterial;
+
+            var scnNode = SCNNode.Create();
+            scnNode.Position = position;
+            scnNode.Scale = new SCNVector3(0.005f, 0.005f, 0.015f);
+            scnNode.Geometry = scnText;
+
+            SceneView.Scene.RootNode.AddChildNode(scnNode);
+        }
+
 		[Action("chooseObject:")]
 		public void ChooseObject(UIButton button)
 		{
@@ -65,7 +92,8 @@ namespace ARLingo
 			}
 
 			UserFeedback.CancelScheduledMessage(MessageType.ContentPlacement);
-			PerformSegue(SegueIdentifier.ShowObjects, button);
+            AddText();
+			//PerformSegue(SegueIdentifier.ShowObjects, button);
 		}
 
 		public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
