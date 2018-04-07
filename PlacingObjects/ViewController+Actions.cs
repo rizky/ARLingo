@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using CoreFoundation;
 using Foundation;
 using SceneKit;
@@ -80,6 +82,32 @@ namespace ARLingo
             scnNode.Geometry = scnText;
 
             SceneView.Scene.RootNode.AddChildNode(scnNode);
+        }
+
+        MachineLearningModel model;
+
+        void ClassifyImageAsync(UIImage img)
+        {
+            model = new MachineLearningModel();
+            model.PredictionsUpdated += (s, e) => ShowPrediction(e.Value);
+            Task.Run(() => model.Classify(img));
+        }
+
+        void ShowPrediction(ImageDescriptionPrediction imageDescriptionPrediction)
+        {
+            //Grab the first 5 predictions, format them for display, and show 'em
+            InvokeOnMainThread(() =>
+            {
+                var message = $"{imageDescriptionPrediction.ModelName} thinks:\n";
+                var topFive = imageDescriptionPrediction.predictions.Take(5);
+                foreach (var prediction in topFive)
+                {
+                    var prob = prediction.Item1;
+                    var desc = prediction.Item2;
+                    message += $"{desc} : {prob.ToString("P") }\n";
+                }
+
+            });
         }
 
 		[Action("chooseObject:")]
