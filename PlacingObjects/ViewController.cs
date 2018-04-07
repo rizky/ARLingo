@@ -255,19 +255,8 @@ namespace ARLingo
 			});
 		}
 
-		public void SetupScene()
-		{
-			// Synchronize updates via the 'serialQueue' 
-            serialQueue = new DispatchQueue(label: "com.xamarin.ARLingo.serialSceneKitQueue");
-			virtualObjectManager = new VirtualObjectManager(serialQueue);
-			virtualObjectManager.Delegate = this;
-
-
-			// Setup the scene view
-			SceneView.Setup();
-			SceneView.Delegate = this;
-			SceneView.Session = Session;
-
+        public void AddText()
+        { 
             String txt = "ARLingo";
             var scnText = SCNText.Create(txt, 1);
             int length = txt.Length;
@@ -295,6 +284,21 @@ namespace ARLingo
 
             SceneView.Scene.RootNode.AddChildNode(scnNode);
             //SceneView.Scene.RootNode.AddChildNode(planeNode);
+        }
+
+		public void SetupScene()
+		{
+			// Synchronize updates via the 'serialQueue' 
+            serialQueue = new DispatchQueue(label: "com.xamarin.ARLingo.serialSceneKitQueue");
+			virtualObjectManager = new VirtualObjectManager(serialQueue);
+			virtualObjectManager.Delegate = this;
+
+            //AddText();
+
+			// Setup the scene view
+			SceneView.Setup();
+			SceneView.Delegate = this;
+			SceneView.Session = Session;
 
 			SceneView.Scene.EnableEnvironmentMapWithIntensity(25.0f, serialQueue);
 			SetupFocusSquare();

@@ -38,34 +38,9 @@ namespace ARLingo
 
         void ReleaseDesignerOutlets ()
         {
-            if (AddObjectButton != null) {
-                AddObjectButton.Dispose ();
-                AddObjectButton = null;
-            }
-
-            if (MessageLabel != null) {
-                MessageLabel.Dispose ();
-                MessageLabel = null;
-            }
-
-            if (MessagePanel != null) {
-                MessagePanel.Dispose ();
-                MessagePanel = null;
-            }
-
-            if (RestartExperienceButton != null) {
-                RestartExperienceButton.Dispose ();
-                RestartExperienceButton = null;
-            }
-
             if (SceneView != null) {
                 SceneView.Dispose ();
                 SceneView = null;
-            }
-
-            if (SettingsButton != null) {
-                SettingsButton.Dispose ();
-                SettingsButton = null;
             }
         }
     }
