@@ -273,13 +273,13 @@ namespace ARLingo
             int length = txt.Length;
             nfloat fontsize = 20f / (length - 10);
             if (length < 10) fontsize = 20;
-            scnText.Font = UIFont.FromName("Courier New", 20f / length);
+            //scnText.Font = UIFont.FromName("Courier New", 20f / length);
             var scnPlane = SCNPlane.Create(15, 5);
             scnPlane.Width = 0.3f;
             scnPlane.Height = 0.1f;
             var txtMaterial = SCNMaterial.Create();
             var bckgndMaterial = SCNMaterial.Create();
-            txtMaterial.Diffuse.Contents = UIColor.Black;
+            txtMaterial.Diffuse.Contents = UIColor.Red;
             bckgndMaterial.Diffuse.Contents = UIColor.Gray;
             scnText.FirstMaterial = txtMaterial;
             scnPlane.FirstMaterial = bckgndMaterial;
@@ -294,7 +294,7 @@ namespace ARLingo
             scnNode.Geometry = scnText;
 
             SceneView.Scene.RootNode.AddChildNode(scnNode);
-            SceneView.Scene.RootNode.AddChildNode(planeNode);
+            //SceneView.Scene.RootNode.AddChildNode(planeNode);
 
 			SceneView.Scene.EnableEnvironmentMapWithIntensity(25.0f, serialQueue);
 			SetupFocusSquare();
