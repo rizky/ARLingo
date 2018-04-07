@@ -135,10 +135,10 @@
     <ImageAsset Include="Assets.xcassets\vase.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\vase.imageset\vase%402x.png" />
     <ImageAsset Include="Assets.xcassets\vase.imageset\vase%403x.png" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\XamarinLogo.imageset\xamagon.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-29.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\xamagon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -169,8 +169,8 @@
     <Folder Include="Assets.xcassets\EnvironmentBlur.imageset\" />
     <Folder Include="Assets.xcassets\cacaca.imageset\" />
     <Folder Include="Assets.xcassets\XamarinLogo.imageset\" />
-    <Folder Include="Assets.xcassets\XamarinLogo.imageset\" />
     <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
+    <Folder Include="Assets.xcassets\Logo.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -180,7 +180,6 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="LICENSE.txt" />
-    <None Include="README.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -315,7 +314,7 @@
     <SceneKitAsset Include="Resources\Models.scnassets\vase\textures\water_DIFFUSE.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\VirtualObjects.json" />
+    <BundleResource Include="VirtualObjects\VirtualObjects.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

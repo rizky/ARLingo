@@ -268,6 +268,34 @@ namespace ARLingo
 			SceneView.Delegate = this;
 			SceneView.Session = Session;
 
+            String txt = "ARLingo";
+            var scnText = SCNText.Create(txt, 1);
+            int length = txt.Length;
+            nfloat fontsize = 20f / (length - 10);
+            if (length < 10) fontsize = 20;
+            scnText.Font = UIFont.FromName("Courier New", 20f / length);
+            var scnPlane = SCNPlane.Create(15, 5);
+            scnPlane.Width = 0.3f;
+            scnPlane.Height = 0.1f;
+            var txtMaterial = SCNMaterial.Create();
+            var bckgndMaterial = SCNMaterial.Create();
+            txtMaterial.Diffuse.Contents = UIColor.Black;
+            bckgndMaterial.Diffuse.Contents = UIColor.Gray;
+            scnText.FirstMaterial = txtMaterial;
+            scnPlane.FirstMaterial = bckgndMaterial;
+
+            var scnNode = SCNNode.Create();
+            var planeNode = SCNNode.Create();
+            planeNode.Geometry = scnPlane;
+            scnNode.Position = new SCNVector3(0, 0, -1);
+            scnNode.Scale = new SCNVector3(0.01f, 0.01f, 0.03f);
+            planeNode.Position = new SCNVector3(0.15f, 0.05f, -1.01f);
+            planeNode.Scale = new SCNVector3(1.0f, 1.0f, 0.01f);
+            scnNode.Geometry = scnText;
+
+            SceneView.Scene.RootNode.AddChildNode(scnNode);
+            SceneView.Scene.RootNode.AddChildNode(planeNode);
+
 			SceneView.Scene.EnableEnvironmentMapWithIntensity(25.0f, serialQueue);
 			SetupFocusSquare();
 
