@@ -2,14 +2,9 @@
   <MonoDevelop.Ide.ItemProperties.ARLingo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.81ceeefaf4b7203f55d8315b4c89a75a5bc86306" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ARLingo Status">
     <Files>
-      <File FileName="PlacingObjects/ViewController.designer.cs" Line="1" Column="1" />
-      <File FileName="PlacingObjects/SettingsViewController.designer.cs" Line="16" Column="1" />
-      <File FileName="PlacingObjects/ViewController+Actions.cs" Line="130" Column="29" />
-      <File FileName="PlacingObjects/MachineLearningModel.cs" Line="54" Column="24" />
-      <File FileName="PlacingObjects/ViewController.cs" Line="249" Column="1" />
-      <File FileName="PlacingObjects/Main.cs" Line="12" Column="1" />
-      <File FileName="PlacingObjects/ObjectExtensions/ARSCNViewExtensions.cs" Line="139" Column="1" />
-      <File FileName="PlacingObjects/VirtualObjects/VirtualObjectManager.cs" Line="238" Column="1" />
+      <File FileName="PlacingObjects/ViewController.cs" Line="266" Column="40" />
+      <File FileName="PlacingObjects/VirtualObjects/VirtualObjectManager.cs" Line="13" Column="1" />
+      <File FileName="PlacingObjects/VirtualObjects/VirtualObjects.json" Line="2" Column="1" />
       <File FileName="ARLingo Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

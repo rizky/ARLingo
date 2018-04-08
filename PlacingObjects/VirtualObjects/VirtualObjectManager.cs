@@ -18,7 +18,7 @@ namespace ARLingo
 		static VirtualObjectManager()
 		{
 			var jsonPath = NSBundle.MainBundle.PathForResource("VirtualObjects", "json");
-			var jsonData = System.IO.File.ReadAllText(jsonPath);
+            var jsonData = "[{\"modelName\":\"candle\",\"displayName\":\"Candle\",\"particleScaleInfo\":{\"flame\":0.018}}]";
 			AvailableObjects = JsonConvert.DeserializeObject<List<VirtualObjectDefinition>>(jsonData);
 		}
 
