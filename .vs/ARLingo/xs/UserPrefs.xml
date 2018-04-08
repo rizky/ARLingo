@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{642930A6-0CFA-4520-89D0-BEB7F1BFA1EA}|Default" GitUserInfo="UsingMD">
+  <MonoDevelop.Ide.ItemProperties.ARLingo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.579A3FB1-6620-4062-8BB5-B18E65EA20F4" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ARLingo Status">
+    <Files>
+      <File FileName="ARLingo Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

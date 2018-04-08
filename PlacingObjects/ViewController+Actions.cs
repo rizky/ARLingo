@@ -70,16 +70,20 @@ namespace ARLingo
             {
                 return;
             }
-            var position = FocusSquare != null ? FocusSquare.LastPosition : new SCNVector3(0, 0, -1.0f);
+            var position = FocusSquare != null ? FocusSquare.LastPosition : new SCNVector3(0, 0, -1.5f);
 
-            position.Z -= 0.05f; 
             var scnText = SCNText.Create(Text, 1);
             var txtMaterial = SCNMaterial.Create();
             var bckgndMaterial = SCNMaterial.Create();
             txtMaterial.Diffuse.Contents = UIColor.Red;
             scnText.FirstMaterial = txtMaterial;
-
             var scnNode = SCNNode.Create();
+
+            scnNode.Position = position;
+            SCNVector3 campos = Session.CurrentFrame.Camera.Transform.Translation();
+            SCNVector3 camnodevec = new SCNVector3(scnNode.Position - campos);
+            //scnNode.Look(new SCNVector3(scnNode.Position.X, scnNode.Position.Y, -1 * scnNode.Position.Z));
+            scnNode.Look(campos + 2 * camnodevec);
             scnNode.Position = position;
             scnNode.Scale = new SCNVector3(0.005f, 0.005f, 0.015f);
             scnNode.Geometry = scnText;

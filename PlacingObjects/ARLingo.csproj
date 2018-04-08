@@ -337,6 +337,11 @@
     <BundleResource Include="Resources\SqueezeNet.mlmodelc\model.espresso.shape" />
     <BundleResource Include="Resources\SqueezeNet.mlmodelc\model.espresso.weights" />
     <BundleResource Include="Resources\SqueezeNet.mlmodelc\model\coremldata.bin" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\coremldata.bin" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\model.espresso.net" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\model.espresso.shape" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\model.espresso.weights" />
+    <BundleResource Include="Resources\VGG16.mlmodelc\model\coremldata.bin" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
