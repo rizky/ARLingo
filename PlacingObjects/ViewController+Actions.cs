@@ -71,7 +71,7 @@ namespace ARLingo
 			DispatchQueue.MainQueue.DispatchAfter(when, () => SetupFocusSquare());
 		}
 
-        public void AddText(string Text)
+        public void AddText(string Text, string Original)
         {
             if (Session == null || ViewController.CurrentFrame == null)
             {
@@ -97,21 +97,39 @@ namespace ARLingo
             SCNVector3 camnodevec = new SCNVector3(scnNode.Position - campos);
             scnNode.Look(campos + 2 * camnodevec);
             scnNode.Pivot = SCNMatrix4.CreateTranslation((max.X - min.X) / 2, 0, 0);
-            //scnNode.Position = new SCNVector3((min.x + max.x) / 2, min.y + max.y, 0);
-
-            //scnNode.Position = position + new SCNVector3(-20 * Text.Length,0,0);
-            scnNode.Position = position;
             scnNode.Scale = new SCNVector3(0.005f, 0.005f, 0.015f);
             scnNode.Geometry = scnText;
 
             SceneView.Scene.RootNode.AddChildNode(scnNode);
-        }
 
-        MachineLearningModel model;
+            if (AppSettings.ScaleWithPinchGesture == true)
+            {
+                var scnText2 = SCNText.Create(Original, 1);
+                var txtMaterial2 = SCNMaterial.Create();
+                txtMaterial2.Diffuse.Contents = UIColor.Blue;
+                scnText2.FirstMaterial = txtMaterial2;
+
+                SCNVector3 min2 = new SCNVector3();
+                SCNVector3 max2 = new SCNVector3();
+                scnText2.GetBoundingBox(ref min2, ref max2);
+                var scnNode2 = SCNNode.Create();
+                Labels.Add(scnNode2);
+                scnNode2.Position = position;
+                SCNVector3 camnodevec2 = new SCNVector3(scnNode2.Position - campos);
+                scnNode2.Look(campos + 2 * camnodevec2);
+                scnNode2.Pivot = SCNMatrix4.CreateTranslation((max2.X - min2.X) / 2, -10, 0);
+                scnNode2.Scale = new SCNVector3(0.005f, 0.005f, 0.015f);
+                scnNode2.Geometry = scnText2;
+                SceneView.Scene.RootNode.AddChildNode(scnNode2);
+            }
+        }
 
         void ClassifyImageAsync(UIImage img)
         {
-            model = new MachineLearningModel();
+            if (AppSettings.DragOnInfinitePlanes == true)
+                model.SwitchToModel("VGG16");
+            else
+                model.SwitchToModel("SqueezeNet");
             model.PredictionsUpdated += (s, e) => ShowPrediction(e.Value);
             Task.Run(() => model.Classify(img));
         }
@@ -136,7 +154,7 @@ namespace ARLingo
                         res = desc;
                         Debug.WriteLine(ex.Message);
                     }
-                    AddText(res);
+                    AddText(res, desc);
                 }
              });
         }

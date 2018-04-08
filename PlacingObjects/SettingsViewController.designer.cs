@@ -13,23 +13,31 @@ namespace ARLingo
     [Register ("SettingsViewController")]
     partial class SettingsViewController
     {
-        [Outlet]
-        UIKit.UISwitch DragOnInfinitePlanesSwitch { get; set; }
+        //[Outlet]
+        //UIKit.UISwitch DragOnInfinitePlanesSwitch { get; set; }
 
 
+        //[Outlet]
+        //UIKit.UISwitch ScaleWithPinchGestureSwitch { get; set; }
+
         [Outlet]
-        UIKit.UISwitch ScaleWithPinchGestureSwitch { get; set; }
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISwitch dragOnInfinitePlanesSwitch { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISwitch scaleWithPinchGestureSwitch { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (DragOnInfinitePlanesSwitch != null) {
-                DragOnInfinitePlanesSwitch.Dispose ();
-                DragOnInfinitePlanesSwitch = null;
+            if (dragOnInfinitePlanesSwitch != null) {
+                dragOnInfinitePlanesSwitch.Dispose ();
+                dragOnInfinitePlanesSwitch = null;
             }
 
-            if (ScaleWithPinchGestureSwitch != null) {
-                ScaleWithPinchGestureSwitch.Dispose ();
-                ScaleWithPinchGestureSwitch = null;
+            if (scaleWithPinchGestureSwitch != null) {
+                scaleWithPinchGestureSwitch.Dispose ();
+                scaleWithPinchGestureSwitch = null;
             }
         }
     }

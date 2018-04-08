@@ -19,8 +19,8 @@ namespace ARLingo
 		}
 
 		public static void RegisterDefaults() {
-			DragOnInfinitePlanes = true;
-			ScaleWithPinchGesture = true;
+			DragOnInfinitePlanes = false;
+            ScaleWithPinchGesture = false;
 		}
 	}
 }

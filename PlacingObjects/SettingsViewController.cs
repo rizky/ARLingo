@@ -24,19 +24,19 @@ namespace ARLingo
 		}
 
 		private void PopulateSettings() {
-			DragOnInfinitePlanesSwitch.On = AppSettings.DragOnInfinitePlanes;
-			ScaleWithPinchGestureSwitch.On = AppSettings.ScaleWithPinchGesture;
+			dragOnInfinitePlanesSwitch.On = AppSettings.DragOnInfinitePlanes;
+			scaleWithPinchGestureSwitch.On = AppSettings.ScaleWithPinchGesture;
 		}
 		[Action("didChangeSetting:")]
 		public void SettingChanged(UISwitch sender)
 		{
-			if (sender == DragOnInfinitePlanesSwitch)
+			if (sender == dragOnInfinitePlanesSwitch)
 			{
-				AppSettings.DragOnInfinitePlanes = DragOnInfinitePlanesSwitch.On;
+				AppSettings.DragOnInfinitePlanes = dragOnInfinitePlanesSwitch.On;
 			}
-			if (sender == ScaleWithPinchGestureSwitch)
+			if (sender == scaleWithPinchGestureSwitch)
 			{
-				AppSettings.ScaleWithPinchGesture = ScaleWithPinchGestureSwitch.On;
+				AppSettings.ScaleWithPinchGesture = scaleWithPinchGestureSwitch.On;
 			}
 		}
 	}

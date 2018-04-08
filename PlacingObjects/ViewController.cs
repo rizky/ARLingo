@@ -59,6 +59,8 @@ namespace ARLingo
 		protected UIActivityIndicatorView Spinner { get; set; }
         public List<SCNNode> Labels { get; set; } = new List<SCNNode>();
 
+        MachineLearningModel model;
+
 		protected VirtualObjectManager virtualObjectManager { get; set; }
 		protected DispatchQueue serialQueue { get; set; }
 
@@ -100,6 +102,7 @@ namespace ARLingo
 			base.ViewDidLoad();
 
 			AppSettings.RegisterDefaults();
+            model = new MachineLearningModel();
 			SetupUIControls();
 			SetupScene();
 		}
