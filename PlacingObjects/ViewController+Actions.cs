@@ -79,6 +79,8 @@ namespace ARLingo
             }
             var position = FocusSquare != null ? FocusSquare.LastPosition : new SCNVector3(0, 0, -1.5f);
 
+            if (Text == null)
+                return;
             var scnText = SCNText.Create(Text, 1);
             var txtMaterial = SCNMaterial.Create();
             var bckgndMaterial = SCNMaterial.Create();
