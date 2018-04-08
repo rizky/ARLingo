@@ -245,6 +245,7 @@
     <Compile Include="MachineLearningModel.cs" />
     <Compile Include="EventArgsT.cs" />
     <Compile Include="ClassExtensions\UIImageOrientationExtensions.cs" />
+    <Compile Include="Utilities\TranslateDict.cs" />
   </ItemGroup>
   <ItemGroup>
     <SceneKitAsset Include="Models.scnassets\crosshair_blue.png" />

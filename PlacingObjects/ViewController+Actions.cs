@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreFoundation;
@@ -102,7 +103,7 @@ namespace ARLingo
 
         void ShowPrediction(ImageDescriptionPrediction imageDescriptionPrediction)
         {
-            //Grab the first 5 predictions, format them for display, and show 'em
+            //Grab the first 1 predictions, format them for display, and show 'em
             InvokeOnMainThread(() =>
             {
                 var topFive = imageDescriptionPrediction.predictions.Take(1);
@@ -110,10 +111,18 @@ namespace ARLingo
                 {
                     var prob = prediction.Item1;
                     var desc = prediction.Item2;
-                    AddText(desc);
+                    string res = desc;
+                    try
+                    {
+                        TranslateDict.Label_EN_FR.TryGetValue(desc, out res);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
+                    }
+                    AddText(res);
                 }
-
-            });
+             });
         }
 
 		[Action("chooseObject:")]

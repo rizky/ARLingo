@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{642930A6-0CFA-4520-89D0-BEB7F1BFA1EA}|Default" GitUserInfo="UsingMD">
-  <MonoDevelop.Ide.ItemProperties.ARLingo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.579A3FB1-6620-4062-8BB5-B18E65EA20F4" />
+  <MonoDevelop.Ide.ItemProperties.ARLingo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.81ceeefaf4b7203f55d8315b4c89a75a5bc86306" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ARLingo Status">
     <Files>
+      <File FileName="PlacingObjects/Utilities/TranslateDict.cs" Line="1527" Column="43" />
+      <File FileName="PlacingObjects/ViewController+Actions.cs" Line="120" Column="22" />
       <File FileName="ARLingo Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
