@@ -57,6 +57,7 @@ namespace ARLingo
 		public VirtualObject DisplayedObject { get; set; }
 		public FocusSquare FocusSquare { get; set; }
 		protected UIActivityIndicatorView Spinner { get; set; }
+        public List<SCNNode> Labels { get; set; } = new List<SCNNode>();
 
 		protected VirtualObjectManager virtualObjectManager { get; set; }
 		protected DispatchQueue serialQueue { get; set; }

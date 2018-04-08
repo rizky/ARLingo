@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreAnimation;
 using CoreFoundation;
 using CoreGraphics;
 using CoreImage;
@@ -38,6 +39,11 @@ namespace ARLingo
 		[Action("RestartExperience:")]
 		public void RestartExperience(NSObject sender)
 		{
+            foreach (SCNNode label in Labels)
+            {
+                label.RemoveFromParentNode();
+            }
+            Labels.Clear();
 			if (!RestartExperienceButton.Enabled || IsLoadingObject) 
 			{
 				return;
@@ -78,13 +84,20 @@ namespace ARLingo
             var bckgndMaterial = SCNMaterial.Create();
             txtMaterial.Diffuse.Contents = UIColor.Red;
             scnText.FirstMaterial = txtMaterial;
-            var scnNode = SCNNode.Create();
 
+            SCNVector3 min = new SCNVector3();
+            SCNVector3 max = new SCNVector3();
+            scnText.GetBoundingBox(ref min, ref max);
+            var scnNode = SCNNode.Create();
+            Labels.Add(scnNode);
             scnNode.Position = position;
             SCNVector3 campos = Session.CurrentFrame.Camera.Transform.Translation();
             SCNVector3 camnodevec = new SCNVector3(scnNode.Position - campos);
-            //scnNode.Look(new SCNVector3(scnNode.Position.X, scnNode.Position.Y, -1 * scnNode.Position.Z));
             scnNode.Look(campos + 2 * camnodevec);
+            scnNode.Pivot = SCNMatrix4.CreateTranslation((max.X - min.X) / 2, 0, 0);
+            //scnNode.Position = new SCNVector3((min.x + max.x) / 2, min.y + max.y, 0);
+
+            //scnNode.Position = position + new SCNVector3(-20 * Text.Length,0,0);
             scnNode.Position = position;
             scnNode.Scale = new SCNVector3(0.005f, 0.005f, 0.015f);
             scnNode.Geometry = scnText;
@@ -111,13 +124,14 @@ namespace ARLingo
                 {
                     var prob = prediction.Item1;
                     var desc = prediction.Item2;
-                    string res = desc;
+                    string res;
                     try
                     {
                         TranslateDict.Label_EN_FR.TryGetValue(desc, out res);
                     }
                     catch (Exception ex)
                     {
+                        res = desc;
                         Debug.WriteLine(ex.Message);
                     }
                     AddText(res);
