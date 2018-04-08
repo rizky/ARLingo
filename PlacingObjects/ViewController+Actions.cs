@@ -159,7 +159,6 @@ namespace ARLingo
              });
         }
 
-		[Action("chooseObject:")]
 		public void ChooseObject(UIButton button)
 		{
 			// Abort if we are about to load another object to avoid concurrent modifications of the scene.
@@ -181,6 +180,12 @@ namespace ARLingo
 
 			//PerformSegue(SegueIdentifier.ShowObjects, button);
 		}
+
+        [Action("chooseObject:")]
+        public void ChooseLang(UIButton button)
+        {
+            PerformSegue(SegueIdentifier.ShowObjects, button);
+        }
 
 		public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
 		{

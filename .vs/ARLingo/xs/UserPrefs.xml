@@ -1,12 +1,9 @@
 ﻿<Properties StartupConfiguration="{642930A6-0CFA-4520-89D0-BEB7F1BFA1EA}|Default" GitUserInfo="UsingMD">
   <MonoDevelop.Ide.ItemProperties.ARLingo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.579A3FB1-6620-4062-8BB5-B18E65EA20F4" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PlacingObjects/VirtualObjects/VirtualObjectManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PlacingObjects/ViewController+Actions.cs">
     <Files>
-      <File FileName="PlacingObjects/ViewController.cs" Line="266" Column="40" />
-      <File FileName="PlacingObjects/VirtualObjects/VirtualObjectManager.cs" Line="20" Column="63" />
-      <File FileName="PlacingObjects/VirtualObjects/VirtualObjects.json" Line="1" Column="1" />
-      <File FileName="PlacingObjects/ViewController+Actions.cs" Line="172" Column="1" />
-      <File FileName="ARLingo Status" />
+      <File FileName="PlacingObjects/ViewController.designer.cs" Line="1" Column="1" />
+      <File FileName="PlacingObjects/ViewController+Actions.cs" Line="171" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
