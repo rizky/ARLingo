@@ -39,3 +39,4 @@ Thumbs.db
 # dotCover
 *.dotCover
 *model.espresso.weights
+.vs/ARLingo/xs/UserPrefs.xml
