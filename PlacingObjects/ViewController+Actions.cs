@@ -136,27 +136,23 @@ namespace ARLingo
 
         void ShowPrediction(ImageDescriptionPrediction imageDescriptionPrediction)
         {
-            //Grab the first 1 predictions, format them for display, and show 'em
-            InvokeOnMainThread(() =>
+            var topFive = imageDescriptionPrediction.predictions.Take(1);
+            foreach (var prediction in topFive)
             {
-                var topFive = imageDescriptionPrediction.predictions.Take(1);
-                foreach (var prediction in topFive)
+                var prob = prediction.Item1;
+                var desc = prediction.Item2;
+                string res;
+                try
                 {
-                    var prob = prediction.Item1;
-                    var desc = prediction.Item2;
-                    string res;
-                    try
-                    {
-                        TranslateDict.Label_EN_FR.TryGetValue(desc, out res);
-                    }
-                    catch (Exception ex)
-                    {
-                        res = desc;
-                        Debug.WriteLine(ex.Message);
-                    }
-                    AddText(res, desc);
+                    TranslateDict.Label_EN_FR.TryGetValue(desc, out res);
                 }
-             });
+                catch (Exception ex)
+                {
+                    res = desc;
+                    Debug.WriteLine(ex.Message);
+                }
+                AddText(res, desc);
+            }
         }
 
 		public void ChooseObject(UIButton button)
