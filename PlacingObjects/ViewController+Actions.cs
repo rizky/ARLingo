@@ -152,6 +152,8 @@ namespace ARLingo
                     Debug.WriteLine(ex.Message);
                 }
                 AddText(res, desc);
+                if (prob < 0.7)
+                    UserFeedback.ScheduleMessage("CONFIDENT IS ONLY " + (prob * 100).ToString() +  "%", 7.5, MessageType.PlaneEstimation);
             }
         }
 

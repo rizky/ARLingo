@@ -1,27 +1,27 @@
 [
     {
         "modelName": "candle",
-        "displayName": "Candle",
+        "displayName": "French",
         "particleScaleInfo": {"flame": 0.018 }
     },
     {
         "modelName": "cup",
-        "displayName": "Cup",
+        "displayName": "German",
         "particleScaleInfo": { }
     },
     {
         "modelName": "vase",
-        "displayName": "Vase",
+        "displayName": "Spanish",
         "particleScaleInfo": { }
     },
     {
         "modelName": "lamp",
-        "displayName": "Lamp",
+        "displayName": "Chinese",
         "particleScaleInfo": { }
     },
     {
         "modelName": "chair",
-        "displayName": "Chair",
+        "displayName": "Korean",
         "particleScaleInfo": { }
     },
 ]

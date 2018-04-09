@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{642930A6-0CFA-4520-89D0-BEB7F1BFA1EA}|Default" GitUserInfo="UsingMD">
-  <MonoDevelop.Ide.ItemProperties.ARLingo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.579A3FB1-6620-4062-8BB5-B18E65EA20F4" />
+  <MonoDevelop.Ide.ItemProperties.ARLingo PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.579A3FB1-6620-4062-8BB5-B18E65EA20F4" automaticSigning="False" />
   <MonoDevelop.Ide.Workbench ActiveDocument="ARLingo Status">
     <Files>
-      <File FileName="PlacingObjects/ViewController.designer.cs" Line="1" Column="1" />
-      <File FileName="PlacingObjects/ViewController+Actions.cs" Line="138" Column="10" />
-      <File FileName="PlacingObjects/ViewController.cs" Line="197" Column="104" />
-      <File FileName="PlacingObjects/ViewController+ARSceneViewDelegate.cs" Line="1" Column="1" />
+      <File FileName="PlacingObjects/Info.plist" />
+      <File FileName="PlacingObjects/ViewController.cs" Line="265" Column="70" />
       <File FileName="ARLingo Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/rizkyario/Projects/ARLingo/PlacingObjects/ViewController+Actions.cs" relfile="PlacingObjects/ViewController+Actions.cs" line="155" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

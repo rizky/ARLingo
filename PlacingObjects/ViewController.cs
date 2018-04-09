@@ -262,7 +262,7 @@ namespace ARLingo
 		public void SetupScene()
 		{
 			// Synchronize updates via the 'serialQueue' 
-            serialQueue = new DispatchQueue(label: "com.xamarin.ARLingo.serialSceneKitQueue");
+            serialQueue = new DispatchQueue(label: "com.rizky.arlingo.serialSceneKitQueue");
 			virtualObjectManager = new VirtualObjectManager(serialQueue);
 			virtualObjectManager.Delegate = this;
 
