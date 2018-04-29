@@ -5,9 +5,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.rizky.arlingo</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1523309095</string>
+	<string>1523309096</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
